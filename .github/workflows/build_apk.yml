@@ -30,6 +30,11 @@ jobs:
       working-directory: ./bike_os
       run: flutter create . --org com.bikeos
 
+    - name: Inject Android Permissions
+      working-directory: ./bike_os
+      run: |
+        sed -i 's/<application/<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" \/>\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" \/>\n    <application/g' android/app/src/main/AndroidManifest.xml
+
     - name: Install Dependencies
       working-directory: ./bike_os
       run: flutter pub get
