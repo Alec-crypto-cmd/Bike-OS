@@ -26,6 +26,10 @@ jobs:
         flutter-version: '3.19.0'
         channel: 'stable'
 
+    - name: Run Flutter Create (Generate Native Files)
+      working-directory: ./bike_os
+      run: flutter create . --org com.bikeos
+
     - name: Install Dependencies
       working-directory: ./bike_os
       run: flutter pub get
